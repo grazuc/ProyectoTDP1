@@ -27,17 +27,25 @@ public class Tester {
 		
 		System.out.println("--------------------------------------------------------------");
 		
-		grafo.removeNode(1);
-		grafo.removeNode(2);
-		grafo.addNode(7);
-		grafo.addEdge(7,2);
+		grafo.RecorroArcos();
 		System.out.println("--------------------------------------------------------------");
+		grafo.removeNode(5);
+		System.out.println("--------------------------------------------------------------");
+		grafo.RecorroArcos();
 		
-		grafo.removeEdge(0,1);
-		grafo.removeEdge(0,1);
-		grafo.removeEdge(3,5);
-		grafo.removeEdge(5,3);
-		grafo.removeEdge(5,4);
+//		grafo.removeNode(1);
+//		grafo.removeNode(2);
+//		grafo.addNode(7);
+//		grafo.addEdge(7,2);
+//		System.out.println("--------------------------------------------------------------");
+//		
+//		grafo.removeEdge(0,1);
+//		grafo.removeEdge(0,1);
+//		grafo.removeEdge(3,5);
+//		grafo.removeEdge(5,3);
+//		grafo.removeEdge(5,4);
+//		grafo.addEdge(5,3);
+//		grafo.addEdge(5,4); 
 	
 	}
 

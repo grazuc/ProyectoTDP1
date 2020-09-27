@@ -1,7 +1,10 @@
 package TDP;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
@@ -20,7 +23,7 @@ public class Graph {
 			logger= Logger.getLogger(Graph.class.getName());
 			Handler hnd=new ConsoleHandler();
 			logger.addHandler(hnd);
-			logger.setLevel(Level.WARNING);
+			logger.setLevel(Level.FINE);
 			Logger rootLogger=logger.getParent();
 			for(Handler h : rootLogger.getHandlers())
 				h.setLevel(Level.OFF);
@@ -33,6 +36,16 @@ public class Graph {
 			mapeoNodos.put(node, node);
 			logger.info("El nodo ha sido agregado correctamente");
 		} else logger.warning("El nodo ya existe");
+	}
+	
+	public void RecorroArcos() {
+		Iterator<Edge> itArcos = mapeoArcos.values().iterator();
+		while (itArcos.hasNext()) {
+			Edge arquito = itArcos.next();
+			System.out.print("Arquito sucesor " +arquito.getSucesor());
+			System.out.print("  Arquito predecesor " +arquito.getPredecesor());
+			System.out.println(" ");
+		}
 	}
 	
 	public void addEdge(int node1, int node2) {
@@ -57,8 +70,9 @@ public class Graph {
 	public void removeNode(int node) {
 		boolean existeNode = mapeoNodos.containsKey(node);
 		if (existeNode) {
-			Iterator<Edge> itArcos = mapeoArcos.values().iterator();
-			if (itArcos.hasNext()) {
+			List<Edge> lista = new ArrayList<Edge>(mapeoArcos.values());
+			Iterator<Edge> itArcos = lista.iterator();
+			while (itArcos.hasNext()) {
 				Edge ArcoAux = itArcos.next();
 				int Sucesor,Predecesor;
 				String key;
