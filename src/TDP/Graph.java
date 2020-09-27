@@ -1,7 +1,7 @@
 package TDP;
 
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -38,15 +38,6 @@ public class Graph {
 		} else logger.warning("El nodo ya existe");
 	}
 	
-	public void RecorroArcos() {
-		Iterator<Edge> itArcos = mapeoArcos.values().iterator();
-		while (itArcos.hasNext()) {
-			Edge arquito = itArcos.next();
-			System.out.print("Arquito sucesor " +arquito.getSucesor());
-			System.out.print("  Arquito predecesor " +arquito.getPredecesor());
-			System.out.println(" ");
-		}
-	}
 	
 	public void addEdge(int node1, int node2) {
 		boolean estaNode1 = mapeoNodos.containsKey(node1);
@@ -92,6 +83,7 @@ public class Graph {
 			logger.warning("El nodo dado no existe");
 		}
 	}
+	
 	
 	public void removeEdge(int node1, int node2) {
 		String key = node1 +"," +node2;
